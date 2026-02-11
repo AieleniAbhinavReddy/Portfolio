@@ -3,247 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aieleni Abhinav Reddy | Portfolio</title>
+    <title>Aieleni Abhinav Reddy | Interactive Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #3b82f6;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #334155;
-            --text-bold: #1e293b;
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #ec4899;
+            --bg: #0f172a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-white: #f8fafc;
+            --text-dim: #94a3b8;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Outfit', sans-serif;
         }
 
         body {
             background-color: var(--bg);
-            color: var(--text-main);
+            color: var(--text-white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* --- Animated Background Blobs --- */
+        .blob-container {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            filter: blur(80px);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: move 20s infinite alternate;
+        }
+
+        .blob.two {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            width: 400px;
+            height: 400px;
+            right: -100px;
+            top: -100px;
+            animation-duration: 15s;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%) rotate(0deg); }
+            to { transform: translate(20%, 20%) rotate(360deg); }
+        }
+
+        /* --- Layout --- */
         .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        /* Header Section */
+        /* --- Header Section --- */
         header {
-            background: var(--primary);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 20px;
             text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            padding: 100px 20px;
+            animation: fadeInDown 1s ease-out;
         }
 
         h1 {
-            font-size: 2.8rem;
-            letter-spacing: -1px;
-            margin-bottom: 15px;
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
-            font-size: 0.95rem;
+            gap: 25px;
         }
 
         .contact-links a {
-            color: #cbd5e1;
+            color: var(--text-dim);
             text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: color 0.3s;
+            padding: 10px 20px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
         }
 
         .contact-links a:hover {
-            color: var(--accent);
+            color: white;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
         }
 
-        /* Grid Layout */
-        .grid {
+        /* --- Sections --- */
+        section {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 24px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        section:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--primary);
+        }
+
+        /* --- Grid System --- */
+        .main-grid {
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 30px;
         }
 
-        @media (max-width: 850px) {
-            .grid { grid-template-columns: 1fr; }
+        @media (max-width: 900px) {
+            .main-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
         }
 
-        section {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        h2 {
-            font-size: 1.25rem;
-            color: var(--text-bold);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-        }
-
-        /* Education & Skills Styling */
-        .item { margin-bottom: 20px; }
-        .item-title { font-weight: 700; color: var(--text-bold); }
-        .item-sub { color: var(--accent); font-weight: 500; font-size: 0.9rem; }
+        /* --- Skills & Tags --- */
+        .skill-group { margin-bottom: 20px; }
+        .skill-group strong { display: block; margin-bottom: 10px; color: var(--text-white); }
         
-        .skill-tag {
+        .tag {
             display: inline-block;
-            background: #eff6ff;
-            color: var(--accent);
-            padding: 4px 12px;
-            border-radius: 20px;
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
             font-size: 0.85rem;
             margin: 4px;
-            font-weight: 600;
+            transition: 0.3s;
         }
 
-        /* Project Cards */
-        .project-card {
-            border: 1px solid #e2e8f0;
-            padding: 20px;
-            border-radius: 12px;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
+        /* --- Projects & Cards --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.05);
             border-color: var(--accent);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
-        .btn-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            margin-top: 15px;
-            color: var(--accent);
+        .card h3 { color: white; margin-bottom: 15px; }
+        .card p { font-size: 0.95rem; color: var(--text-dim); }
+
+        .btn-action {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            transition: 0.3s;
         }
 
-        /* Certs & Profiles */
-        .list-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #f1f5f9;
+        .btn-action:hover {
+            letter-spacing: 1px;
+            color: var(--accent);
         }
 
-        .list-item:last-child { border: none; }
-
-        .profile-icon {
-            font-size: 1.5rem;
-            margin-right: 10px;
-            vertical-align: middle;
+        /* --- Education/Internship Items --- */
+        .timeline-item {
+            border-left: 2px solid var(--glass-border);
+            padding-left: 25px;
+            margin-bottom: 30px;
+            position: relative;
         }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .date-badge {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Aieleni Abhinav Reddy</h1> <div class="contact-links">
-            <a href="mailto:aeileniabhinavreddy@gmail.com"><i class="fas fa-envelope"></i> aeileniabhinavreddy@gmail.com</a> <a href="tel:+918886133448"><i class="fas fa-phone"></i> +91-8886133448</a> <a href="https://www.linkedin.com/in/aieleni-abhinav-reddy-8a886a2bb/"><i class="fab fa-linkedin"></i> LinkedIn</a> <a href="https://github.com/AieleniAbhinavReddy"><i class="fab fa-github"></i> GitHub</a> </div>
-    </header>
+    <div class="blob-container">
+        <div class="blob"></div>
+        <div class="blob two"></div>
+    </div>
 
-    <div class="grid">
-        <div class="sidebar">
-            <section>
-                <h2><i class="fas fa-tools"></i> Skills</h2> <p><strong>Languages:</strong></p> <span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
-                <p style="margin-top:15px"><strong>Web:</strong></p> <span class="skill-tag">HTML/CSS</span><span class="skill-tag">React.js</span><span class="skill-tag">Spring Boot</span><span class="skill-tag">Django</span>
-                <p style="margin-top:15px"><strong>Tools:</strong></p> <span class="skill-tag">Git/Github</span><span class="skill-tag">Vercel</span><span class="skill-tag">Render</span><span class="skill-tag">Postman</span>
-            </section>
+    <div class="container">
+        <header>
+            <h1>Aieleni Abhinav Reddy</h1> <div class="contact-links">
+                <a href="mailto:aeileniabhinavreddy@gmail.com"><i class="fas fa-envelope"></i> Email</a> <a href="tel:+918886133448"><i class="fas fa-phone"></i> +91-8886133448</a> <a href="https://www.linkedin.com/in/aieleni-abhinav-reddy-8a886a2bb/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> <a href="https://github.com/AieleniAbhinavReddy" target="_blank"><i class="fab fa-github"></i> GitHub</a> </div>
+        </header>
 
-            <section>
-                <h2><i class="fas fa-graduation-cap"></i> Education</h2> <div class="item">
-                    <p class="item-title">Institute Of Aeronautical Engineering</p> <p class="item-sub">B.Tech CSE | 2023 - 2027</p> <p>GPA: 8.55/10.0</p> </div>
-                <div class="item">
-                    <p class="item-title">Narayana Junior College</p> <p class="item-sub">MPC | 2021 - 2023</p> <p>GPA: 9.46/10.0</p> </div>
-            </section>
+        <div class="main-grid">
+            <aside>
+                <section class="reveal">
+                    <h2><i class="fas fa-code"></i> Expertise</h2> <div class="skill-group">
+                        <strong>Languages</strong>
+                        <span class="tag">Java</span><span class="tag">Python</span><span class="tag">SQL</span> </div>
+                    <div class="skill-group">
+                        <strong>Web Tech</strong>
+                        <span class="tag">React.js</span><span class="tag">Spring Boot</span><span class="tag">Django</span><span class="tag">HTML/CSS</span> </div>
+                    <div class="skill-group">
+                        <strong>Tools</strong>
+                        <span class="tag">Git</span><span class="tag">Vercel</span><span class="tag">Render</span><span class="tag">Salesforce</span> </div>
+                </section>
 
-            <section>
-                <h2><i class="fas fa-user-code"></i> Profiles</h2> <div class="list-item">
-                    <span>LeetCode</span>
-                    <a href="https://leetcode.com/u/Aieleni_Abhinav_Reddy/" class="btn-link">View <i class="fas fa-external-link-alt"></i></a> </div>
-                <div class="list-item">
-                    <span>HackerRank</span>
-                    <a href="https://www.hackerrank.com/profile/Aieleni_Abhinav" class="btn-link">View <i class="fas fa-external-link-alt"></i></a> </div>
-                <div class="list-item">
-                    <span>GeeksforGeeks</span>
-                    <a href="https://www.geeksforgeeks.org/user/aeileniabh8mcg/" class="btn-link">View <i class="fas fa-external-link-alt"></i></a> </div>
-            </section>
-        </div>
+                <section class="reveal">
+                    <h2><i class="fas fa-graduation-cap"></i> Education</h2> <div class="timeline-item">
+                        <span class="date-badge">2023 - 2027</span> <h4>Inst. of Aeronautical Engineering</h4> <p>B.Tech CSE | GPA: 8.55</p> </div>
+                    <div class="timeline-item">
+                        <span class="date-badge">2021 - 2023</span> <h4>Narayana Junior College</h4> <p>MPC | GPA: 9.46</p> </div>
+                </section>
+                
+                <section class="reveal">
+                    <h2><i class="fas fa-link"></i> Profiles</h2> <div class="contact-links" style="justify-content: flex-start;">
+                        <a href="https://leetcode.com/u/Aieleni_Abhinav_Reddy/" style="width: 100%;">LeetCode</a> <a href="https://www.hackerrank.com/profile/Aieleni_Abhinav" style="width: 100%;">HackerRank</a> <a href="https://www.geeksforgeeks.org/user/aeileniabh8mcg/" style="width: 100%;">GeeksforGeeks</a> </div>
+                </section>
+            </aside>
 
-        <div class="main-content">
-            <section>
-                <h2><i class="fas fa-briefcase"></i> Internships</h2> <div class="item">
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start">
-                        <div>
-                            <p class="item-title">VSoft Consulting Group | AIML Intern</p> <p class="item-sub">May 2025 - June 2025</p> </div>
-                        <a href="https://drive.google.com/file/d/1cjpDiTbtmbGwE4Gt2tTYa7gze2a8f8VE/view?usp=drive_link" class="btn-link">Certificate</a> </div>
-                    <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.95rem;">
-                        [cite_start]<li>Designed a Diabetes Prediction model using Machine Learning and Python. [cite: 21]</li>
-                        [cite_start]<li>Led a team of 3 to build 4 complete ML pipelines (Training to Deployment). [cite: 22]</li>
-                    </ul>
-                </div>
+            <main>
+                <section class="reveal">
+                    <h2><i class="fas fa-briefcase"></i> Experience</h2> <div class="timeline-item">
+                        <span class="date-badge">May 2025 - June 2025</span> <h3>VSoft Consulting |  AIML Intern</h3> <p>Developed Diabetes Prediction models and led a team to build 4 ML pipelines. [cite: 21, 22]</p>
+                        <a href="https://drive.google.com/file/d/1cjpDiTbtmbGwE4Gt2tTYa7gze2a8f8VE/view?usp=drive_link" class="btn-action">View Certificate <i class="fas fa-arrow-right"></i></a> </div>
+                    <div class="timeline-item">
+                        <span class="date-badge">May 2024</span> <h3>Common’s Collective |  Full Stack Intern</h3> <p>Developed "Blog Town" news portal using React.js and Django. [cite: 26, 27]</p>
+                        <a href="https://drive.google.com/file/d/1uuDyGidTIqGKSwK81PjkaQA7jk025mXF/view?usp=drive_link" class="btn-action">View Certificate <i class="fas fa-arrow-right"></i></a> </div>
+                </section>
 
-                <div class="item" style="margin-top:30px">
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start">
-                        <div>
-                            <p class="item-title">Common’s Collective | Full Stack Intern</p> <p class="item-sub">May 2024 - May 2024</p> </div>
-                        <a href="https://drive.google.com/file/d/1uuDyGidTIqGKSwK81PjkaQA7jk025mXF/view?usp=drive_link" class="btn-link">Certificate</a> </div>
-                    <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.95rem;">
-                        [cite_start]<li>Developed "Blog Town," enhancing article browsing with React.js and Django. [cite: 26, 27]</li>
-                    </ul>
-                </div>
-            </section>
+                <section class="reveal">
+                    <h2><i class="fas fa-laptop-code"></i> Featured Projects</h2> <div class="project-grid">
+                        <div class="card">
+                             <h3>SkillBase</h3> <p>Full-stack education platform with React, Spring Boot, and MySQL. [cite: 31]</p>
+                            <a href="https://elp-frontend-six.vercel.app/" class="btn-action">Live Demo</a> </div>
+                        <div class="card">
+                             <h3>Diabetes ML</h3> <p>End-to-end ML pipeline with FastAPI and Random Forest Classifier. [cite: 34]</p>
+                            <a href="https://github.com/AieleniAbhinavReddy/Diabetes-Prediction" class="btn-action">Code Repository</a> </div>
+                        <div class="card">
+                             <h3>Quick News</h3> <p>Real-time news portal using React.js and News API integrations. [cite: 37]</p>
+                            <a href="https://quick-news-nine.vercel.app/" class="btn-action">Live Demo</a> </div>
+                    </div>
+                </section>
 
-            <section>
-                <h2><i class="fas fa-project-diagram"></i> Projects</h2> <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px">
-                    <div class="project-card">
-                        [cite_start]<h3>SkillBase</h3> <p style="font-size: 0.9rem; margin-top:10px">Online education platform built with React, Spring Boot, and MySQL. [cite: 31]</p>
-                        <a href="https://elp-frontend-six.vercel.app/" class="btn-link">Live Site <i class="fas fa-arrow-right"></i></a> </div>
-                    <div class="project-card">
-                        [cite_start]<h3>Diabetes ML</h3> <p style="font-size: 0.9rem; margin-top:10px">End-to-end ML pipeline with Random Forest and FastAPI. [cite: 34]</p>
-                        <a href="https://github.com/AieleniAbhinavReddy/Diabetes-Prediction" class="btn-link">GitHub <i class="fab fa-github"></i></a> </div>
-                </div>
-            </section>
-
-            <section>
-                <h2><i class="fas fa-certificate"></i> Certifications</h2> <div class="list-item">
-                    <span>Programming in Java</span> <a href="https://drive.google.com/file/d/1WnW3LFhQ0_hmtIvwLQMstkKjflTEPREb/view?usp=drive_link" class="btn-link">View</a> </div>
-                <div class="list-item">
-                    <span>Joy of Computing using Python</span> <a href="https://drive.google.com/file/d/1r6dD0sotX6YMivAMoEm1QprWwt7HEQbI/view?usp=drive_link" class="btn-link">View</a> </div>
-                <div class="list-item">
-                    <span>Database Management Systems</span> <a href="https://drive.google.com/file/d/1ETWc8krBJqEzw5cEuGaZ1zVfVIVIWXAG/view?usp=drive_link" class="btn-link">View</a> </div>
-            </section>
+                <section class="reveal">
+                    <h2><i class="fas fa-award"></i> Certifications</h2> <div class="project-grid" style="grid-template-columns: 1fr;">
+                        <div class="card" style="padding: 15px 30px; display:flex; justify-content: space-between; align-items: center;">
+                            <span>Programming in Java</span> <a href="https://drive.google.com/file/d/1WnW3LFhQ0_hmtIvwLQMstkKjflTEPREb/view?usp=drive_link" class="btn-action" style="margin:0">Verify</a> </div>
+                        <div class="card" style="padding: 15px 30px; display:flex; justify-content: space-between; align-items: center;">
+                            <span>Joy of Computing using Python</span> <a href="https://drive.google.com/file/d/1r6dD0sotX6YMivAMoEm1QprWwt7HEQbI/view?usp=drive_link" class="btn-action" style="margin:0">Verify</a> </div>
+                        <div class="card" style="padding: 15px 30px; display:flex; justify-content: space-between; align-items: center;">
+                            <span>Database Management Systems</span> <a href="https://drive.google.com/file/d/1ETWc8krBJqEzw5cEuGaZ1zVfVIVIWXAG/view?usp=drive_link" class="btn-action" style="margin:0">Verify</a> </div>
+                    </div>
+                </section>
+            </main>
         </div>
     </div>
-</div>
 
+    <script>
+        // Smooth reveal on scroll
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
