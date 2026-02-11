@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aieleni Abhinav Reddy | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-bold: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.95rem;
+        }
+
+        .contact-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 850px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: var(--text-bold);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        /* Education & Skills Styling */
+        .item { margin-bottom: 20px; }
+        .item-title { font-weight: 700; color: var(--text-bold); }
+        .item-sub { color: var(--accent); font-weight: 500; font-size: 0.9rem; }
+        
+        .skill-tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 4px;
+            font-weight: 600;
+        }
+
+        /* Project Cards */
+        .project-card {
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 15px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Certs & Profiles */
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .list-item:last-child { border: none; }
+
+        .profile-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Aieleni Abhinav Reddy</h1> <div class="contact-links">
+            <a href="mailto:aeileniabhinavreddy@gmail.com"><i class="fas fa-envelope"></i> aeileniabhinavreddy@gmail.com</a> <a href="tel:+918886133448"><i class="fas fa-phone"></i> +91-8886133448</a> <a href="https://www.linkedin.com/in/aieleni-abhinav-reddy-8a886a2bb/"><i class="fab fa-linkedin"></i> LinkedIn</a> <a href="https://github.com/AieleniAbhinavReddy"><i class="fab fa-github"></i> GitHub</a> </div>
+    </header>
+
+    <div class="grid">
+        <div class="sidebar">
+            <section>
+                <h2><i class="fas fa-tools"></i> Skills</h2> <p><strong>Languages:</strong></p> <span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
+                <p style="margin-top:15px"><strong>Web:</strong></p> <span class="skill-tag">HTML/CSS</span><span class="skill-tag">React.js</span><span class="skill-tag">Spring Boot</span><span class="skill-tag">Django</span>
+                <p style="margin-top:15px"><strong>Tools:</strong></p> <span class="skill-tag">Git/Github</span><span class="skill-tag">Vercel</span><span class="skill-tag">Render</span><span class="skill-tag">Postman</span>
+            </section>
+
+            <section>
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2> <div class="item">
+                    <p class="item-title">Institute Of Aeronautical Engineering</p> <p class="item-sub">B.Tech CSE | 2023 - 2027</p> <p>GPA: 8.55/10.0</p> </div>
+                <div class="item">
+                    <p class="item-title">Narayana Junior College</p> <p class="item-sub">MPC | 2021 - 2023</p> <p>GPA: 9.46/10.0</p> </div>
+            </section>
+
+            <section>
+                <h2><i class="fas fa-user-code"></i> Profiles</h2> <div class="list-item">
+                    <span>LeetCode</span>
+                    <a href="https://leetcode.com/u/Aieleni_Abhinav_Reddy/" class="btn-link">View <i class="fas fa-external-link-alt"></i></a> </div>
+                <div class="list-item">
+                    <span>HackerRank</span>
+                    <a href="https://www.hackerrank.com/profile/Aieleni_Abhinav" class="btn-link">View <i class="fas fa-external-link-alt"></i></a> </div>
+                <div class="list-item">
+                    <span>GeeksforGeeks</span>
+                    <a href="https://www.geeksforgeeks.org/user/aeileniabh8mcg/" class="btn-link">View <i class="fas fa-external-link-alt"></i></a> </div>
+            </section>
+        </div>
+
+        <div class="main-content">
+            <section>
+                <h2><i class="fas fa-briefcase"></i> Internships</h2> <div class="item">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start">
+                        <div>
+                            <p class="item-title">VSoft Consulting Group | AIML Intern</p> <p class="item-sub">May 2025 - June 2025</p> </div>
+                        <a href="https://drive.google.com/file/d/1cjpDiTbtmbGwE4Gt2tTYa7gze2a8f8VE/view?usp=drive_link" class="btn-link">Certificate</a> </div>
+                    <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.95rem;">
+                        [cite_start]<li>Designed a Diabetes Prediction model using Machine Learning and Python. [cite: 21]</li>
+                        [cite_start]<li>Led a team of 3 to build 4 complete ML pipelines (Training to Deployment). [cite: 22]</li>
+                    </ul>
+                </div>
+
+                <div class="item" style="margin-top:30px">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start">
+                        <div>
+                            <p class="item-title">Common’s Collective | Full Stack Intern</p> <p class="item-sub">May 2024 - May 2024</p> </div>
+                        <a href="https://drive.google.com/file/d/1uuDyGidTIqGKSwK81PjkaQA7jk025mXF/view?usp=drive_link" class="btn-link">Certificate</a> </div>
+                    <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.95rem;">
+                        [cite_start]<li>Developed "Blog Town," enhancing article browsing with React.js and Django. [cite: 26, 27]</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2><i class="fas fa-project-diagram"></i> Projects</h2> <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px">
+                    <div class="project-card">
+                        [cite_start]<h3>SkillBase</h3> <p style="font-size: 0.9rem; margin-top:10px">Online education platform built with React, Spring Boot, and MySQL. [cite: 31]</p>
+                        <a href="https://elp-frontend-six.vercel.app/" class="btn-link">Live Site <i class="fas fa-arrow-right"></i></a> </div>
+                    <div class="project-card">
+                        [cite_start]<h3>Diabetes ML</h3> <p style="font-size: 0.9rem; margin-top:10px">End-to-end ML pipeline with Random Forest and FastAPI. [cite: 34]</p>
+                        <a href="https://github.com/AieleniAbhinavReddy/Diabetes-Prediction" class="btn-link">GitHub <i class="fab fa-github"></i></a> </div>
+                </div>
+            </section>
+
+            <section>
+                <h2><i class="fas fa-certificate"></i> Certifications</h2> <div class="list-item">
+                    <span>Programming in Java</span> <a href="https://drive.google.com/file/d/1WnW3LFhQ0_hmtIvwLQMstkKjflTEPREb/view?usp=drive_link" class="btn-link">View</a> </div>
+                <div class="list-item">
+                    <span>Joy of Computing using Python</span> <a href="https://drive.google.com/file/d/1r6dD0sotX6YMivAMoEm1QprWwt7HEQbI/view?usp=drive_link" class="btn-link">View</a> </div>
+                <div class="list-item">
+                    <span>Database Management Systems</span> <a href="https://drive.google.com/file/d/1ETWc8krBJqEzw5cEuGaZ1zVfVIVIWXAG/view?usp=drive_link" class="btn-link">View</a> </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
